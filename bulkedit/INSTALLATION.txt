@@ -1,0 +1,134 @@
+AMAZON ADS BULK SHEET ANALYZER — INSTALLATION GUIDE
+=====================================================
+
+WHAT THIS DOES
+--------------
+You paste a Google Drive URL of any Amazon Ads bulk-editor XLSX file
+into a Google Sheet, click "Run Analysis" from the menu, and the script
+generates 12 dashboard tabs covering:
+
+  📊 Dashboard          — Account KPIs, channel mix, snapshot insights
+  SP Campaigns          — Sponsored Products campaign rollup
+  SB & SD Campaigns     — Sponsored Brands and Sponsored Display
+  🎯 Best Keywords      — Your targeting keywords (SP + SB), branded vs non-branded
+  🎯 Best Targets       — SP product targets and SD audience targets
+  📍 Placements         — Top of Search, Product Pages, Rest of Search performance
+  Top ASINs             — Highest-performing advertised products
+  Search Terms          — Top customer search terms by sales
+  ⚠️ Negative KWs       — Negative keyword candidates (the search-term skill)
+  🏆 Top Performers     — Winning search terms to harvest
+  Match Types           — Auto vs Phrase vs Broad vs Exact
+  💡 Recommendations    — Action-oriented strategic recommendations
+
+
+INSTALLATION (one time, ~3 minutes)
+-----------------------------------
+
+1. Open Google Drive (drive.google.com) and create a new Google Sheet.
+   Name it whatever you like, e.g. "Amazon Ads Dashboard".
+
+2. In the new sheet, click:  Extensions → Apps Script
+   This opens the script editor in a new tab.
+
+3. In the script editor, you'll see a default file called "Code.gs".
+   Replace its contents with the file Code.gs provided.
+   (Open Code.gs in a text editor, copy all, paste into the script editor.)
+
+4. Add a second script file:
+      Click the "+" next to "Files" on the left sidebar
+      Select "Script"
+      Name it: Dashboard
+   Then paste the contents of Dashboard.gs into that file.
+
+5. Enable the Drive API (required to convert XLSX to Google Sheets):
+      Click "Services" (the + icon next to Services in the left sidebar)
+      Find "Drive API"
+      Set version to "v2"
+      Click "Add"
+
+6. Click the disk icon to save (or Ctrl/Cmd + S).
+   You'll be prompted to name the project — call it whatever you like.
+
+7. Go back to the Google Sheet tab and refresh the page (F5).
+   After ~5 seconds, a new menu appears: "Amazon Ads".
+
+8. From that menu, click: Amazon Ads → Setup Main Tab.
+   The Main tab is created with a URL field and instructions.
+
+9. The first run will prompt you for permissions — these are needed to:
+      - Read your Drive files (to fetch the bulk XLSX)
+      - Edit this Google Sheet (to write the dashboard)
+   Click "Authorize" and approve. Google will warn you that this is an
+   "unverified app" because it's your own private script — that is normal.
+   Click "Advanced → Go to (project name) → Allow".
+
+
+HOW TO USE
+----------
+
+1. Upload your Amazon Ads bulk-editor XLSX to Google Drive.
+   (Just drag-and-drop into Drive.)
+
+2. Right-click the uploaded file → Share → "Anyone with the link" →
+   Copy link.   (Or just keep it private — your script can read your
+   own files without sharing.)
+
+3. Paste the Drive URL into cell B3 of the Main tab in your dashboard sheet.
+
+4. From the menu: Amazon Ads → Run Analysis.
+
+5. The script takes ~30 seconds to a couple of minutes depending on the
+   size of the bulk file. Status updates appear in cell B5.
+
+6. When done, the Dashboard tab activates automatically. Browse the
+   other generated tabs at the bottom of the sheet.
+
+
+WHAT IF I WANT TO RUN ON A DIFFERENT FILE?
+------------------------------------------
+
+Just paste a new URL into B3 and click Run Analysis again. The output
+tabs are overwritten with fresh data each time.
+
+If you want to clear all output tabs: Amazon Ads → Clear Output Tabs.
+
+
+ATTRIBUTION NOTES
+-----------------
+
+Sponsored Display sales use the "Sales (Views & Clicks)" attribution
+column when present, falling back to "Sales" otherwise. This matches
+Amazon's standard summary reporting.
+
+Sponsored Brands "Multi Ad Group Campaigns" tab is a duplicate view of
+the legacy Sponsored Brands tab (same Campaign IDs). The script uses
+the Multi Ad Group view when present (it has more recent attribution)
+and the legacy tab only as a fallback. The two are NOT summed together.
+
+
+TROUBLESHOOTING
+---------------
+
+"Drive is not defined" → Re-do step 5 above (enable Drive API v2).
+
+"Could not parse a Drive file ID" → The URL pasted into B3 is not a
+valid Drive link. Right-click the file in Drive and use "Get link".
+
+"Cannot find tab X" → The bulk file is missing one of the expected
+tabs (Sponsored Products Campaigns, etc.). The script will skip
+missing tabs and analyze whatever it finds.
+
+Analysis takes too long (>5 minutes) → Apps Script has a 6-minute
+execution limit. Very large bulk files may exceed this. If you hit
+the limit, split the bulk export into smaller files.
+
+
+SUPPORT
+-------
+
+The script is self-contained and editable. You can customize the
+output tabs by editing Dashboard.gs in the Apps Script editor.
+
+The competitor brand list used for negative-keyword classification is
+in the classifyNegativeReason_() function at the bottom of Dashboard.gs.
+Add or remove competitor brands there for your category.
