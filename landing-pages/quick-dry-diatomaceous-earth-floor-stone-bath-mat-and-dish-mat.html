@@ -1,0 +1,1375 @@
+<!-- Quick-Dry Diatomite Mat2 — PageFly-safe embed (scoped, no global tags) -->
+<style>
+  /* Scope everything to this component */
+  .mme-landing {
+    /* Brand palette */
+    --mme-brand: #A1AB97;
+    /* primary green */
+    --mme-brand-2: #1e6e4b;
+    /* darker green for gradient/hover */
+    --mme-earth-1: #f3efe8;
+    /* warm off-white background */
+    --mme-earth-2: #e5dccf;
+    /* soft beige panels / accents */
+    --mme-earth-3: #d7c9b8;
+    /* subtle divider/border */
+    --mme-text: #2b2b2b;
+    /* body text */
+    --mme-muted: #5a6b63;
+    /* secondary text */
+    --mme-shadow: 0 10px 28px rgba(22, 35, 28, .10);
+    --mme-radius: 16px;
+    --mme-gap: 22px;
+    --mme-maxw: 1140px;
+  }
+
+  /* Reset-ish (scoped) */
+  .mme-landing * {
+    box-sizing: border-box
+  }
+
+  .mme-landing {
+    margin: 0;
+    background: var(--mme-earth-1);
+    color: var(--mme-text);
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial
+  }
+
+  .mme-landing img {
+    max-width: 100%;
+    height: auto;
+    display: block
+  }
+
+  .mme-landing a {
+    color: inherit;
+    text-decoration: none
+  }
+
+  .mme-container {
+    max-width: var(--mme-maxw);
+    margin-inline: auto;
+    padding: clamp(16px, 3vw, 10px)
+  }
+
+  .mme-grid {
+    display: grid;
+    gap: clamp(14px, 2.5vw, var(--mme-gap))
+  }
+
+  .mme-cols-2 {
+    grid-template-columns: 1fr
+  }
+
+  @media(min-width:960px) {
+    .mme-cols-2 {
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center
+    }
+  }
+
+  /* UI atoms */
+  .mme-btn {
+    --bg: var(--mme-brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--bg), var(--mme-brand-2));
+    color: #fff;
+    font-weight: 700;
+    border: 0;
+    box-shadow: var(--mme-shadow);
+    transition: transform .08s ease, filter .2s ease
+  }
+
+  .mme-btn:hover {
+    transform: translateY(-1px);
+    filter: saturate(1.04)
+  }
+
+  .mme-btn.mme-secondary {
+    background: #fff;
+    color: var(--mme-brand);
+    border: 1px solid var(--mme-earth-3);
+    box-shadow: none
+  }
+
+  .mme-kicker {
+    display: inline-block;
+    font-size: .78rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--mme-brand);
+    background: #eaf5ef;
+    border: 1px solid #d3ebde;
+    padding: 6px 10px;
+    border-radius: 999px
+  }
+
+  .mme-h1 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.1;
+    margin: .6rem 0;
+    font-weight: 800
+  }
+
+  .mme-lead {
+    color: var(--mme-muted);
+    font-size: clamp(1rem, 1.6vw, 1.15rem)
+  }
+
+  .mme-taglist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px
+  }
+
+  .mme-tag {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    color: #365846;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 12px
+  }
+
+  .mme-pill {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    background: #eaf5ef;
+    border: 1px solid #cfe8db;
+    color: #285241;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: .82rem
+  }
+
+  /* Price styling */
+  .mme-price {
+    font-size: 1.4rem;
+    margin-top: 4px;
+    font-weight: 700;
+    color: var(--mme-brand-2);
+  }
+
+  .mme-price s {
+    color: var(--mme-muted);
+    font-weight: 400;
+    margin-right: 8px;
+  }
+
+  /* Sections */
+  .mme-section {
+    padding: clamp(10px, 6vw, 10px) 0
+  }
+
+  .mme-hero {
+    position: relative
+  }
+
+  .mme-hero-card {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: var(--mme-radius);
+    box-shadow: var(--mme-shadow);
+    overflow: hidden
+  }
+
+  .mme-media {
+    border-radius: var(--mme-radius);
+    overflow: hidden;
+    border: 1px solid var(--mme-earth-3);
+    background: #fff
+  }
+
+  .mme-section-card {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: var(--mme-radius);
+    padding: clamp(18px, 3vw, 28px);
+    box-shadow: var(--mme-shadow)
+  }
+
+  .mme-center {
+    text-align: center
+  }
+
+  .mme-eyebrow {
+    font-weight: 700;
+    color: var(--mme-brand);
+    letter-spacing: .08em;
+    text-transform: uppercase
+  }
+
+  .mme-ul-clean {
+    list-style: none;
+    padding: 0;
+    margin: 0
+  }
+
+  .mme-ul-clean li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 8px 0
+  }
+
+  .mme-check {
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: #eaf5ef;
+    border: 1px solid #cfe8db;
+    color: var(--mme-brand);
+    font-weight: 800;
+    flex: 0 0 24px
+  }
+
+  /* Features grid */
+  .mme-features {
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+  }
+
+  @media(min-width:760px) {
+    .mme-features {
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+  }
+
+  @media(min-width:1080px) {
+    .mme-features {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+  }
+
+  .mme-feature {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: 14px;
+    padding: 18px
+  }
+
+  /* Steps */
+  .mme-steps {
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+  }
+
+  @media(min-width:900px) {
+    .mme-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+  }
+
+  .mme-step {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: 14px;
+    padding: 18px;
+    position: relative
+  }
+
+  .mme-num {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: #eaf5ef;
+    color: #245b44;
+    border: 1px solid #cfe8db;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .85rem;
+    padding: 3px 8px
+  }
+
+  /* Use cases */
+  .mme-usecards {
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+  }
+
+  @media(min-width:960px) {
+    .mme-usecards {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+  }
+
+  .mme-ucard {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: 14px;
+    overflow: hidden
+  }
+
+  .mme-ucard .mme-body {
+    padding: 16px
+  }
+
+  /* Reviews */
+  .mme-reviews {
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+  }
+
+  @media(min-width:960px) {
+    .mme-reviews {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+  }
+
+  .mme-review {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: 14px;
+    padding: 18px
+  }
+
+  .mme-stars {
+    letter-spacing: 2px;
+    color: #f1b400;
+    font-size: 1.05rem
+  }
+
+  /* FAQ (scoped elements) */
+  .mme-landing details {
+    background: #fff;
+    border: 1px solid var(--mme-earth-3);
+    border-radius: 12px;
+    padding: 14px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .mme-landing details:hover {
+    border-color: var(--mme-brand);
+    box-shadow: 0 4px 12px rgba(161, 171, 151, 0.15);
+  }
+
+  .mme-landing details[open] {
+    border-color: var(--mme-brand);
+    box-shadow: 0 6px 20px rgba(161, 171, 151, 0.2);
+  }
+
+  .mme-landing details+details {
+    margin-top: 12px
+  }
+
+  .mme-landing summary {
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-right: 30px;
+  }
+
+  .mme-landing summary:hover {
+    color: var(--mme-brand);
+  }
+
+  .mme-landing summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--mme-brand);
+    transition: transform 0.3s ease, color 0.2s ease;
+    line-height: 1;
+  }
+
+  .mme-landing details[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+
+  .mme-faqq {
+    color: #1e3c2e;
+    transition: color 0.2s ease;
+  }
+
+  .mme-landing details[open] .mme-faqq {
+    color: var(--mme-brand);
+  }
+
+  .mme-faqc {
+    color: var(--mme-muted);
+    margin-top: 8px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
+  }
+
+  .mme-landing details[open] .mme-faqc {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 12px;
+  }
+
+  /* Footer */
+  .mme-footer-note {
+    color: #6e7a73;
+    font-size: .9rem;
+    text-align: center
+  }
+
+  /* CTA row helper */
+  .mme-cta-row {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center
+  }
+
+  /* Animation classes */
+  .mme-animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .mme-animate-on-load.mme-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mme-animate-fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  .mme-animate-fade-in.mme-visible {
+    opacity: 1;
+  }
+
+  .mme-animate-slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .mme-animate-slide-left.mme-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mme-animate-slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .mme-animate-slide-right.mme-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mme-animate-scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .mme-animate-scale-in.mme-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Carousel styles */
+  .mme-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--mme-radius);
+    height: 600px;
+    /* Fixed height for carousel */
+  }
+
+  .mme-carousel-container {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    height: 100%;
+    width: 100%;
+  }
+
+  .mme-carousel-slide {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .mme-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures images fill the container properly */
+    display: block;
+  }
+
+  /* Mobile carousel fixes */
+  @media(max-width: 959px) {
+    .mme-carousel {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .mme-carousel-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mme-carousel-slide {
+      width: 100%;
+      min-width: 100%;
+      flex: 0 0 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mme-media {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  /* Carousel indicators */
+  .mme-carousel-indicators {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .mme-carousel-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .mme-carousel-indicator.active {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Video container styles */
+  .mme-video-container {
+    position: relative;
+    width: 60%;
+    height: 0;
+    padding-bottom: 75%;
+    /* Full height coverage */
+    overflow: hidden;
+    border-radius: var(--mme-radius);
+    border: 1px solid var(--mme-earth-3);
+    background: #000;
+    margin: 0 auto;
+    /* Center align */
+  }
+
+  .mme-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Tab content switching */
+  .mme-tab-content {
+    display: block;
+  }
+
+  .mme-tab-content.hidden {
+    display: none;
+  }
+</style>
+
+<section class="mme-landing" id="mme-diatomite">
+  <!-- HERO -->
+  <div class="mme-hero mme-section">
+    <div class="mme-container mme-hero-card mme-animate-scale-in">
+      <div class="mme-grid mme-cols-2">
+        <div class="mme-animate-slide-left">
+          <span class="mme-kicker">Quick-Dry Diatomite Mat</span>
+          <h1 class="mme-h1">Step onto <span style="color:var(--mme-brand)">dryness</span> in seconds—no soggy rugs, no
+            mildew.</h1>
+
+          <p class="mme-lead">Mineral-based mat absorbs water instantly, dries fast, and keeps your bathroom
+            <strong>clean, safe, and odor-free</strong>.
+          </p>
+
+          <div class="mme-taglist" aria-label="Key benefits">
+            <span class="mme-tag">Rapid absorption</span>
+            <span class="mme-tag">Dries in seconds</span>
+            <span class="mme-tag">Mold & odor resisting</span>
+            <span class="mme-tag">No laundry needed</span>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <a onclick="firetag()" class="mme-btn"
+              href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+              rel="noopener">Buy Now</a>
+            <a class="mme-btn mme-secondary" href="#mme-features">See Features</a>
+          </div>
+          <p style="margin-top:8px;color:var(--mme-muted)">Free & fast shipping • 30-day money-back guarantee</p>
+          <p style="margin-top:12px;color:var(--mme-text);font-size:0.9rem;font-weight:600">Available in:</p>
+
+          <!-- Hero Size Tabs -->
+          <div
+            style="margin-top:8px;display:inline-flex;background:#fff;border:1px solid var(--mme-earth-3);border-radius:999px;padding:4px;box-shadow:var(--mme-shadow)">
+            <button class="mme-hero-tab-btn" onclick="selectSize('regular')" data-hero-tab="regular" style="padding:8px 20px;border-radius:999px;border:0;background:var(--mme-brand);color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">Regular Size</button>
+            <button class="mme-hero-tab-btn" onclick="selectSize('xl')" data-hero-tab="xl" style="padding:8px 20px;border-radius:999px;border:0;background:transparent;color:var(--mme-muted);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">XL Size</button>
+          </div>
+        </div>
+
+        <div class="mme-media mme-animate-slide-right">
+          <div class="mme-carousel" id="hero-carousel">
+            <div class="mme-carousel-container">
+              <div class="mme-carousel-slide">
+                <img src="//memotherearthbrand.com/cdn/shop/products/MG_6345_1080x.jpg?v=1723913043" alt="Quick-Dry Diatomite Mat in bathroom setting" loading="lazy">
+              </div>
+              <div class="mme-carousel-slide">
+                <img src="https://memotherearthbrand.com/cdn/shop/files/4_6f6aeb42-6589-4b15-9fad-e645d42b910a_540x.png?v=1756511627" alt="Diatomite surface detail" loading="lazy">
+              </div>
+            </div>
+            <div class="mme-carousel-indicators">
+              <span class="mme-carousel-indicator active" data-slide="0"></span>
+              <span class="mme-carousel-indicator" data-slide="1"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM / PROMISE -->
+  <div class="mme-section">
+    <div class="mme-container mme-section-card mme-animate-on-load">
+      <div class="mme-grid mme-cols-2">
+        <div class="mme-animate-slide-left">
+          <p class="mme-eyebrow">Why switch</p>
+          <h2 style="margin:.2rem 0 0">Fabric mats stay wet. This one doesn’t.</h2>
+          <p style="color:var(--mme-muted)">Traditional bath rugs trap moisture, harbor odors, and feel soggy. The
+            Diatomite Mat pulls water into millions of micropores, then releases it into the air—so the surface is dry
+            again within seconds.</p>
+          <ul class="mme-ul-clean" style="margin-top:10px">
+            <li><span class="mme-check">✓</span> Keeps floors dry & safer from slips</li>
+            <li><span class="mme-check">✓</span> Naturally resists mildew & bacteria</li>
+            <li><span class="mme-check">✓</span> No machine washing or endless drying cycles</li>
+          </ul>
+
+          <!-- CTA -->
+          <div class="mme-cta-row">
+            <a onclick="firetag()" class="mme-btn"
+              href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+              rel="noopener" aria-label="Switch to Quick-Dry Today">
+              Switch to Quick-Dry Today
+            </a>
+          </div>
+        </div>
+        <div class="mme-media mme-animate-slide-right">
+          <div class="mme-video-container">
+            <iframe id="promise-video" width="100%" height="315" src="https://www.youtube.com/embed/ki_PJ-atUD8"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+
+          <!-- Video Size Tabs -->
+          <div class="mme-center" style="margin-top:16px">
+            <div
+              style="display:inline-flex;background:#fff;border:1px solid var(--mme-earth-3);border-radius:999px;padding:4px;box-shadow:var(--mme-shadow)">
+              <button class="mme-video-tab-btn" onclick="switchVideoTab('regular')" data-video-tab="regular" style="padding:8px 20px;border-radius:999px;border:0;background:var(--mme-brand);color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">Regular Size</button>
+              <button class="mme-video-tab-btn" onclick="switchVideoTab('xl')" data-video-tab="xl" style="padding:8px 20px;border-radius:999px;border:0;background:transparent;color:var(--mme-muted);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">XL Size</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="mme-section" id="mme-how">
+    <div class="mme-container">
+      <p class="mme-center mme-eyebrow mme-animate-fade-in">How it works</p>
+      <h2 class="mme-center mme-animate-fade-in" style="margin-top:6px">3 simple steps to a dry bathroom</h2>
+      <div class="mme-grid mme-steps" style="margin-top:12px">
+        <div class="mme-step mme-animate-on-load" data-delay="100">
+          <span class="mme-num">1</span>
+          <h3>Place</h3>
+          <p style="color:var(--mme-muted)">Lay it on a flat surface outside the shower or tub. Anti-slip backing keeps
+            it in place.</p>
+        </div>
+        <div class="mme-step mme-animate-on-load" data-delay="200">
+          <span class="mme-num">2</span>
+          <h3>Step</h3>
+          <p style="color:var(--mme-muted)">Water is drawn into micropores immediately—no puddles, no wet footprints.
+          </p>
+        </div>
+        <div class="mme-step mme-animate-on-load" data-delay="300">
+          <span class="mme-num">3</span>
+          <h3>Dry</h3>
+          <p style="color:var(--mme-muted)">Moisture evaporates rapidly. Surface dries in seconds, ready for the next
+            person.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mme-cta-row">
+        <a onclick="firetag()" class="mme-btn"
+          href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+          rel="noopener" aria-label="Stay Dry in Seconds">
+          Dry in Seconds
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- USE CASES -->
+  <div class="mme-section" id="mme-features">
+    <div class="mme-container">
+      <p class="mme-center mme-eyebrow mme-animate-fade-in">Where it shines</p>
+      <h2 class="mme-center mme-animate-fade-in" style="margin-top:6px">Any bathroom, any household</h2>
+
+      <!-- Size Tabs -->
+      <div class="mme-center" style="margin-top:16px">
+        <div
+          style="display:inline-flex;background:#fff;border:1px solid var(--mme-earth-3);border-radius:999px;padding:4px;box-shadow:var(--mme-shadow)">
+          <button class="mme-tab-btn" onclick="switchTab('regular')" data-tab="regular" style="padding:8px 20px;border-radius:999px;border:0;background:var(--mme-brand);color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">Regular Size</button>
+          <button class="mme-tab-btn" onclick="switchTab('xl')" data-tab="xl" style="padding:8px 20px;border-radius:999px;border:0;background:transparent;color:var(--mme-muted);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease">XL Size</button>
+        </div>
+      </div>
+
+      <!-- Regular Size Content -->
+      <div class="mme-tab-content" id="regular-content">
+        <div class="mme-grid mme-usecards" style="margin-top:14px">
+          <article class="mme-ucard mme-animate-on-load" data-delay="100">
+            <img src="//memotherearthbrand.com/cdn/shop/files/5_0c10f0d4-5a12-4f68-8a66-9d3bd8bec3f9.png?v=1723617786" alt="Apartment bathroom" loading="lazy">
+            <div class="mme-body">
+              <h3>Small apartments</h3>
+              <p style="color:var(--mme-muted)">Perfect for limited ventilation—stays fresh without constant laundering.
+              </p>
+            </div>
+          </article>
+          <article class="mme-ucard mme-animate-on-load" data-delay="200">
+            <img src="//memotherearthbrand.com/cdn/shop/files/3_a217826e-2f3b-4a6e-be15-e18005280a03.png?v=1723617786" alt="Family bathroom" loading="lazy">
+            <div class="mme-body">
+              <h3>Family bathrooms</h3>
+              <p style="color:var(--mme-muted)">Kids in and out? The mat is dry again before the next turn.</p>
+            </div>
+          </article>
+          <article class="mme-ucard mme-animate-on-load" data-delay="300">
+            <img src="//memotherearthbrand.com/cdn/shop/products/NewBathMat.png?v=1723913043" alt="Guest bath" loading="lazy">
+            <div class="mme-body">
+              <h3>Guest & rental</h3>
+              <p style="color:var(--mme-muted)">Reduce laundry turnover while keeping spaces spotless.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- XL Size Content -->
+      <div class="mme-tab-content hidden" id="xl-content">
+        <div class="mme-grid mme-usecards" style="margin-top:14px">
+          <article class="mme-ucard mme-animate-on-load" data-delay="100">
+            <img src="https://memotherearthbrand.com/cdn/shop/files/5_79750428-8fda-4321-8d8b-982ce866dafb_540x.png?v=1756511627" alt="Master bathroom" loading="lazy">
+            <div class="mme-body">
+              <h3>Master bathrooms</h3>
+              <p style="color:var(--mme-muted)">Spacious XL mat provides complete coverage for larger bathroom floors.
+              </p>
+            </div>
+          </article>
+          <article class="mme-ucard mme-animate-on-load" data-delay="200">
+            <img src="https://memotherearthbrand.com/cdn/shop/files/6_a3dad839-cc2c-408d-9ec5-f5ea44ecbef8_540x.png?v=1756511627" alt="Luxury bathroom" loading="lazy">
+            <div class="mme-body">
+              <h3>Luxury bathrooms</h3>
+              <p style="color:var(--mme-muted)">Premium XL size matches high-end bathroom designs and provides superior
+                coverage.</p>
+            </div>
+          </article>
+          <article class="mme-ucard mme-animate-on-load" data-delay="300">
+            <img src="https://memotherearthbrand.com/cdn/shop/files/3_b2d99b00-d414-4063-ad8c-54beea91231f.png?v=1756511627" alt="Commercial spaces" loading="lazy">
+            <div class="mme-body">
+              <h3>Commercial spaces</h3>
+              <p style="color:var(--mme-muted)">XL mat handles high-traffic areas in hotels, spas, and commercial
+                bathrooms.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mme-cta-row">
+        <a onclick="firetag()" class="mme-btn"
+          href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+          rel="noopener" aria-label="Make Every Bathroom Dry">
+          Keep Every Bathroom Dry
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="mme-section">
+    <div class="mme-container">
+      <p class="mme-center mme-eyebrow mme-animate-fade-in">Features & benefits</p>
+      <h2 class="mme-center mme-animate-fade-in" style="margin-top:6px">Designed for cleanliness, safety & ease</h2>
+      <div class="mme-grid mme-features" style="margin-top:14px">
+        <div class="mme-feature mme-animate-on-load" data-delay="100">
+          <h3>Ultra-fast absorption</h3>
+          <p style="color:var(--mme-muted)">Mineral diatomite wicks water instantly so feet and floors stay dry.</p>
+        </div>
+        <div class="mme-feature mme-animate-on-load" data-delay="200">
+          <h3>Dries in seconds</h3>
+          <p style="color:var(--mme-muted)">Open-pore structure releases moisture quickly—no musty odors.</p>
+        </div>
+        <div class="mme-feature mme-animate-on-load" data-delay="300">
+          <h3>Anti-slip footing</h3>
+          <p style="color:var(--mme-muted)">Textured surface improves traction compared to slick tiles.</p>
+        </div>
+        <div class="mme-feature mme-animate-on-load" data-delay="400">
+          <h3>Low maintenance</h3>
+          <p style="color:var(--mme-muted)">Just wipe or rinse. Lightly sand the surface occasionally to refresh.</p>
+        </div>
+        <div class="mme-feature mme-animate-on-load" data-delay="500">
+          <h3>Minimalist aesthetic</h3>
+          <p style="color:var(--mme-muted)">Clean, modern look that harmonizes with most bathrooms.</p>
+        </div>
+        <div class="mme-feature mme-animate-on-load" data-delay="600">
+          <h3>Durable & eco-friendly</h3>
+          <p style="color:var(--mme-muted)">Built to last; avoids frequent laundry cycles and energy use.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mme-cta-row">
+        <a onclick="firetag()" class="mme-btn"
+          href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+          rel="noopener" aria-label="Shop the Quick-Dry Mat">
+          Shop the Quick-Dry Mat
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="mme-section" aria-label="Customer reviews">
+    <div class="mme-container mme-section-card">
+      <p class="mme-eyebrow mme-animate-fade-in">What customers say</p>
+      <h2 class="mme-animate-fade-in">Dry floors, happy feet</h2>
+      <div class="mme-grid mme-reviews" style="margin-top:12px">
+        <div class="mme-review mme-animate-on-load" data-delay="100">
+          <h3>Great</h3>
+          <div class="mme-stars">★★★★★</div>
+          <p style="color:var(--mme-muted)">"I have yet to open the box but I can tell it will be fabulous."</p>
+          <p><strong>— Christopher Crucini</strong></p>
+        </div>
+        <div class="mme-review mme-animate-on-load" data-delay="200">
+          <h3>Beautiful work and very useful.</h3>
+          <div class="mme-stars">★★★★★</div>
+          <p style="color:var(--mme-muted)">"Beautiful work and very useful."</p>
+          <p><strong>— Adan</strong></p>
+        </div>
+        <div class="mme-review mme-animate-on-load" data-delay="300">
+          <h3>Looks great and dries really fast!</h3>
+          <div class="mme-stars">★★★★★</div>
+          <p style="color:var(--mme-muted)">"Looks great and dries really fast!"</p>
+          <p><strong>— Lemuel</strong></p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mme-cta-row">
+        <a onclick="firetag()" class="mme-btn"
+          href="https://memotherearthbrand.com/products/quick-dry-diatomite-mat?_pos=1&_sid=97a09a057&_ss=r"
+          rel="noopener" aria-label="Try It Risk-Free">
+          Buy It Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="mme-section" id="mme-faq">
+    <div class="mme-container">
+      <p class="mme-center mme-eyebrow mme-animate-fade-in">FAQ</p>
+      <h2 class="mme-center mme-animate-fade-in" style="margin-top:6px">Everything you want to know</h2>
+      <div style="max-width:900px;margin:14px auto 0" class="mme-grid">
+        <details class="mme-animate-on-load" data-delay="100">
+          <summary class="mme-faqq">Is a stone-type mat safe on bathroom floors?</summary>
+          <div class="mme-faqc">Yes. Use on flat, even surfaces. The textured top improves footing and helps reduce
+            slips compared to wet tiles.</div>
+        </details>
+        <details class="mme-animate-on-load" data-delay="200">
+          <summary class="mme-faqq">How do I clean and maintain it?</summary>
+          <div class="mme-faqc">Wipe or rinse occasionally. For stubborn marks, lightly sand with fine sandpaper to
+            refresh the surface. Avoid harsh chemicals.</div>
+        </details>
+        <details class="mme-animate-on-load" data-delay="300">
+          <summary class="mme-faqq">Will it crack?</summary>
+          <div class="mme-faqc">It's sturdy for daily use. Avoid dropping or heavy impacts. Place on a flat surface with
+            the included anti-slip pad.</div>
+        </details>
+        <details class="mme-animate-on-load" data-delay="400">
+          <summary class="mme-faqq">Does it work in humid bathrooms?</summary>
+          <div class="mme-faqc">Yes. The open-pore structure releases moisture into the air. Good ventilation enhances
+            speed, but it still dries quickly.</div>
+        </details>
+        <details class="mme-animate-on-load" data-delay="500">
+          <summary class="mme-faqq">What sizes and colors are available?</summary>
+          <div class="mme-faqc">Size: <br>Regular -23.62" x 15.44" x 0.44"in <br> XL - Size: 31.5" x 19.6" x 0.35" in
+            <br> Colors : Light grey and Dark Grey
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Smooth scroll (scoped to this block only). If PageFly strips scripts, remove this and rely on default jumps. -->
+<script>
+  (function(){
+    var root = document.getElementById('mme-diatomite');
+    if(!root) return;
+    root.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href').slice(1);
+        var el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  })();
+
+
+function firetag(){
+
+  gtag('event', 'conversion', {
+      'send_to': 'AW-691163344/BVghCIKZlKkbENChyckC',
+      'value': 1.0,
+      'currency': 'USD'
+  });
+
+
+}
+
+// Size selection function - synchronized across all sections
+function selectSize(size) {
+  console.log('Selected size:', size);
+  
+  // Update Buy Now button URLs
+  updateBuyNowUrls(size);
+  
+  // Synchronize all Regular Size buttons
+  if (size === 'regular') {
+    // Update hero section size buttons
+    var heroButtons = document.querySelectorAll('.mme-hero-tab-btn');
+    heroButtons.forEach(function(btn) {
+      if (btn.getAttribute('data-hero-tab') === 'regular') {
+        btn.style.background = 'var(--mme-brand)';
+        btn.style.color = '#fff';
+      } else if (btn.getAttribute('data-hero-tab') === 'xl') {
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--mme-muted)';
+      }
+    });
+    
+    // Update use cases tabs
+    switchTab('regular');
+    
+    // Update video tabs
+    switchVideoTab('regular');
+  } else if (size === 'xl') {
+    // Update hero section size buttons
+    var heroButtons = document.querySelectorAll('.mme-hero-tab-btn');
+    heroButtons.forEach(function(btn) {
+      if (btn.getAttribute('data-hero-tab') === 'xl') {
+        btn.style.background = 'var(--mme-brand)';
+        btn.style.color = '#fff';
+      } else if (btn.getAttribute('data-hero-tab') === 'regular') {
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--mme-muted)';
+      }
+    });
+    
+    // Update use cases tabs
+    switchTab('xl');
+    
+    // Update video tabs
+    switchVideoTab('xl');
+  }
+}
+
+// Function to update Buy Now button URLs
+function updateBuyNowUrls(size) {
+  var buyNowButtons = document.querySelectorAll('a[onclick="firetag()"]');
+  var urls = {
+    'regular': 'https://memotherearthbrand.com/products/quick-dry-diatomite-mat',
+    'xl': 'https://memotherearthbrand.com/products/xlquick-dry-diatomaceous-earth-floor-stone-bath-and-dish-mat-bathroom-shower-mat-non-slip-super-absorbent-eco-friendly-sustainable'
+  };
+  
+  buyNowButtons.forEach(function(btn) {
+    if (urls[size]) {
+      btn.href = urls[size];
+    }
+  });
+}
+
+// Tab switching function for Use Cases section - synchronized
+function switchTab(tabName) {
+  console.log('Switched to tab:', tabName);
+  
+  // Update Buy Now button URLs
+  updateBuyNowUrls(tabName);
+  
+  // Update use cases tab button styles
+  var tabButtons = document.querySelectorAll('.mme-tab-btn');
+  tabButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Update hero section size buttons
+  var heroButtons = document.querySelectorAll('.mme-hero-tab-btn');
+  heroButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-hero-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Update video tabs (without calling switchTab to avoid infinite loop)
+  var videoTabButtons = document.querySelectorAll('.mme-video-tab-btn');
+  videoTabButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-video-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Switch video based on tab
+  var videoIframe = document.getElementById('promise-video');
+  if (videoIframe) {
+    var videoUrls = {
+      'regular': 'https://www.youtube.com/embed/ki_PJ-atUD8',
+      'xl': 'https://www.youtube.com/embed/vh7pj2sNDHg'
+    };
+    
+    if (videoUrls[tabName]) {
+      videoIframe.src = videoUrls[tabName];
+    }
+  }
+  
+  // Switch tab content
+  var regularContent = document.getElementById('regular-content');
+  var xlContent = document.getElementById('xl-content');
+  
+  if (tabName === 'regular') {
+    regularContent.classList.remove('hidden');
+    xlContent.classList.add('hidden');
+  } else if (tabName === 'xl') {
+    regularContent.classList.add('hidden');
+    xlContent.classList.remove('hidden');
+  }
+  
+  // Re-trigger animations for the newly visible content
+  setTimeout(function() {
+    var visibleContent = tabName === 'regular' ? regularContent : xlContent;
+    var animatedElements = visibleContent.querySelectorAll('.mme-animate-on-load');
+    animatedElements.forEach(function(element) {
+      element.classList.add('mme-visible');
+    });
+  }, 100);
+}
+
+// Video tab switching function - synchronized
+function switchVideoTab(tabName) {
+  console.log('Switched to video tab:', tabName);
+  
+  // Update Buy Now button URLs
+  updateBuyNowUrls(tabName);
+  
+  // Update video tab button styles
+  var videoTabButtons = document.querySelectorAll('.mme-video-tab-btn');
+  videoTabButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-video-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Update hero section size buttons
+  var heroButtons = document.querySelectorAll('.mme-hero-tab-btn');
+  heroButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-hero-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Update use cases tabs (without calling switchTab to avoid infinite loop)
+  var tabButtons = document.querySelectorAll('.mme-tab-btn');
+  tabButtons.forEach(function(btn) {
+    if (btn.getAttribute('data-tab') === tabName) {
+      btn.style.background = 'var(--mme-brand)';
+      btn.style.color = '#fff';
+    } else {
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--mme-muted)';
+    }
+  });
+  
+  // Switch use cases tab content
+  var regularContent = document.getElementById('regular-content');
+  var xlContent = document.getElementById('xl-content');
+  
+  if (tabName === 'regular') {
+    regularContent.classList.remove('hidden');
+    xlContent.classList.add('hidden');
+  } else if (tabName === 'xl') {
+    regularContent.classList.add('hidden');
+    xlContent.classList.remove('hidden');
+  }
+  
+  // Re-trigger animations for the newly visible content
+  setTimeout(function() {
+    var visibleContent = tabName === 'regular' ? regularContent : xlContent;
+    var animatedElements = visibleContent.querySelectorAll('.mme-animate-on-load');
+    animatedElements.forEach(function(element) {
+      element.classList.add('mme-visible');
+    });
+  }, 100);
+  
+  // Switch video based on tab
+  var videoIframe = document.getElementById('promise-video');
+  if (videoIframe) {
+    var videoUrls = {
+      'regular': 'https://www.youtube.com/embed/ki_PJ-atUD8',
+      'xl': 'https://www.youtube.com/embed/vh7pj2sNDHg'
+    };
+    
+    if (videoUrls[tabName]) {
+      videoIframe.src = videoUrls[tabName];
+    }
+  }
+}
+
+// Scroll-triggered animations using Intersection Observer
+(function(){
+  var root = document.getElementById('mme-diatomite');
+  if(!root) return;
+  
+  // Create intersection observer for scroll-triggered animations
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var element = entry.target;
+        var delay = 0;
+        
+        // Check for custom delay attribute
+        var customDelay = element.getAttribute('data-delay');
+        if (customDelay) {
+          delay = parseInt(customDelay);
+        }
+        
+        // Trigger animation after delay
+        setTimeout(function() {
+          element.classList.add('mme-visible');
+        }, delay);
+        
+        // Stop observing this element once it's animated
+        observer.unobserve(element);
+      }
+    });
+  }, {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '0px 0px -50px 0px' // Start animation slightly before element fully enters viewport
+  });
+  
+  // Function to initialize scroll animations
+  function initScrollAnimations() {
+    // Get all elements with animation classes
+    var animatedElements = root.querySelectorAll('.mme-animate-on-load, .mme-animate-fade-in, .mme-animate-slide-left, .mme-animate-slide-right, .mme-animate-scale-in');
+    
+    // Start observing each element
+    animatedElements.forEach(function(element) {
+      observer.observe(element);
+    });
+  }
+  
+  // Initialize animations when page loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+  } else {
+    initScrollAnimations();
+  }
+})();
+
+// Enhanced FAQ interactions
+(function(){
+  var root = document.getElementById('mme-diatomite');
+  if(!root) return;
+  
+  // Get all FAQ details elements
+  var faqItems = root.querySelectorAll('details');
+  
+  faqItems.forEach(function(details) {
+    var summary = details.querySelector('summary');
+    var content = details.querySelector('.mme-faqc');
+    
+    if (!summary || !content) return;
+    
+    // Handle click events for smooth animations
+    summary.addEventListener('click', function(e) {
+      // Prevent default behavior temporarily to control animation timing
+      e.preventDefault();
+      
+      var isOpening = !details.hasAttribute('open');
+      
+      if (isOpening) {
+        // Opening: set open attribute and animate in
+        details.setAttribute('open', '');
+        
+        // Small delay to ensure the open state is processed
+        setTimeout(function() {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }, 10);
+      } else {
+        // Closing: animate out then remove open attribute
+        content.style.maxHeight = '0px';
+        
+        setTimeout(function() {
+          details.removeAttribute('open');
+        }, 400); // Match CSS transition duration
+      }
+    });
+    
+    // Handle keyboard accessibility
+    summary.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        summary.click();
+      }
+    });
+  });
+})();
+
+// Carousel functionality
+(function(){
+  var root = document.getElementById('mme-diatomite');
+  if(!root) return;
+  
+  // Initialize all carousels
+  function initCarousels() {
+    var carousels = root.querySelectorAll('.mme-carousel');
+    
+    carousels.forEach(function(carousel) {
+      var container = carousel.querySelector('.mme-carousel-container');
+      var indicators = carousel.querySelectorAll('.mme-carousel-indicator');
+      var slides = carousel.querySelectorAll('.mme-carousel-slide');
+      var currentSlide = 0;
+      var slideInterval;
+      
+      if (!container || !indicators.length || !slides.length) return;
+      
+      // Function to go to specific slide
+      function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        container.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        
+        // Update indicators
+        indicators.forEach(function(indicator, index) {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+      }
+      
+      // Function to go to next slide
+      function nextSlide() {
+        var nextIndex = (currentSlide + 1) % slides.length;
+        goToSlide(nextIndex);
+      }
+      
+      // Auto-advance carousel every 4 seconds
+      function startAutoSlide() {
+        slideInterval = setInterval(nextSlide, 4000);
+      }
+      
+      // Stop auto-advance
+      function stopAutoSlide() {
+        if (slideInterval) {
+          clearInterval(slideInterval);
+          slideInterval = null;
+        }
+      }
+      
+      // Add click handlers to indicators
+      indicators.forEach(function(indicator, index) {
+        indicator.addEventListener('click', function() {
+          goToSlide(index);
+          stopAutoSlide();
+          startAutoSlide(); // Restart auto-slide after manual interaction
+        });
+      });
+      
+      // Pause auto-slide on hover
+      carousel.addEventListener('mouseenter', stopAutoSlide);
+      carousel.addEventListener('mouseleave', startAutoSlide);
+      
+      // Start auto-slide
+      startAutoSlide();
+    });
+  }
+  
+  // Initialize carousels when page loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousels);
+  } else {
+    initCarousels();
+  }
+})();
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-691163344"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-691163344');
+</script>

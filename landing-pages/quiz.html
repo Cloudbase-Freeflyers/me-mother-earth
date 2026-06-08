@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Help Our Mother Earth • Find Your Perfect Eco-Friendly Products</title>
+  <meta name="description"
+    content="Discover plastic-free and ingredient-conscious products for your home. Take our quick quiz to find personalized eco-friendly recommendations that match your values." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-light: #f7fafc;
+      --bg-section: #fafbfc;
+      --card: #ffffff;
+      --card-hover: #f5f7fa;
+      --muted: #718096;
+      --muted-light: #9ca3af;
+      --text: #2d3748;
+      --text-dark: #1a202c;
+      --brand: #95C334;
+      --brand-light: #a8d34f;
+      --brand-dark: #7aa028;
+      --accent: #f59e0b;
+      --accent-secondary: #10b981;
+      --danger: #ef4444;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+      --gradient-primary: linear-gradient(135deg, #95C334 0%, #7aa028 100%);
+      --gradient-success: linear-gradient(135deg, #95C334 0%, #7aa028 100%);
+      --gradient-hero: linear-gradient(135deg, #f0f7e8 0%, #e8f4d9 50%, #ffffff 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* Header */
+    header {
+      background: #ffffff;
+      color: var(--text-dark);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid #e2e8f0
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: var(--brand)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: #4a5568;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500
+    }
+
+    .nav-links a:hover {
+      color: var(--brand)
+    }
+
+    @media (max-width:768px) {
+      .nav-links {
+        display: none
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      background: var(--brand);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(149, 195, 52, 0.3);
+      transition: all .3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(149, 195, 52, 0.4);
+      background: var(--brand-dark)
+    }
+
+    .btn.outline {
+      background: white;
+      border: 2px solid var(--brand);
+      color: var(--brand);
+      box-shadow: none
+    }
+
+    .btn.outline:hover {
+      background: #f0f7e8
+    }
+
+    /* "instruction button" that looks like the green button but isn't clickable */
+    .btn.notice {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem
+    }
+
+    .reassurance-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      font-style: italic
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--gradient-hero);
+      padding: 6rem 0 4rem;
+      text-align: center
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      line-height: 1.2;
+      font-weight: 700
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      font-weight: 400
+    }
+
+    .hero .description {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    #shopify-section-footer,
+    #shopify-section-header {
+      display: none;
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 0;
+      background: var(--bg-section)
+    }
+
+    .section:nth-child(even) {
+      background: var(--bg)
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+      font-weight: 700
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem
+    }
+
+    .benefit-card {
+      padding: 2rem;
+      border-radius: 15px;
+      background: var(--bg-light);
+      transition: transform 0.3s, box-shadow 0.3s
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+    }
+
+    .benefit-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+      font-weight: 600
+    }
+
+    .benefit-card p {
+      color: #4a5568;
+      line-height: 1.8;
+      font-size: 1.05rem
+    }
+
+    /* Quiz Wizard */
+    .finder-wizard {
+      background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+      border: 2px solid var(--brand-light);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px
+    }
+
+    .wizard-step {
+      display: none
+    }
+
+    .wizard-step.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .wizard-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px
+    }
+
+    .wizard-option {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .3s;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .wizard-option:hover {
+      border-color: var(--brand-light);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(149, 195, 52, 0.15)
+    }
+
+    .wizard-option.selected {
+      border-color: var(--brand);
+      background: #f0f7e8;
+      box-shadow: 0 4px 20px rgba(149, 195, 52, 0.2)
+    }
+
+    .wizard-option h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      font-weight: 600
+    }
+
+    .wizard-option p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.5rem
+    }
+
+    .wizard-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      gap: 16px
+    }
+
+    .wizard-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px
+    }
+
+    .progress-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      transition: all .3s
+    }
+
+    .progress-dot.active {
+      background: var(--brand);
+      transform: scale(1.2)
+    }
+
+    /* Product Cards */
+    .variants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem
+    }
+
+    .variant-card {
+      background: var(--bg-light);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      border: 3px solid transparent
+    }
+
+    .variant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-color: var(--brand)
+    }
+
+    .variant-image {
+      width: 100%;
+      height: 350px;
+      background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden
+    }
+
+    .variant-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .variant-info {
+      padding: 1.5rem
+    }
+
+    .variant-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      font-weight: 600
+    }
+
+    .variant-info .why-match {
+      font-size: 0.9rem;
+      color: var(--brand-dark);
+      font-weight: 500;
+      margin-bottom: 0.5rem
+    }
+
+    .variant-info p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem
+    }
+
+    .variant-info .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 0.5rem
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--text-dark) 0%, #1a202c 100%);
+      color: white;
+      text-align: center
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .cta-section .btn {
+      background: var(--brand);
+      color: white
+    }
+
+    .cta-section .btn:hover {
+      background: var(--brand-light)
+    }
+
+    /* Footer */
+    footer {
+      background: #1a202c;
+      color: white;
+      padding: 4rem 0 2rem
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600
+    }
+
+    .footer-section p {
+      color: #cbd5e0;
+      line-height: 1.8;
+      margin-bottom: 1rem
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #4a5568;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      color: #cbd5e0
+    }
+
+    @media (max-width:768px) {
+      .hero h1 {
+        font-size: 2.5rem
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem
+      }
+
+      .hero .description {
+        font-size: 1rem
+      }
+
+      .section-title {
+        font-size: 2rem
+      }
+
+      .wizard-options {
+        grid-template-columns: 1fr
+      }
+
+      .variants-grid {
+        grid-template-columns: 1fr
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    #shopify-section-template--20895602114809__main,
+    .section-footer,
+    .section-header {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="//memotherearthbrand.com/cdn/shop/files/oie_bjcQ6vDjHNyg_500x.png?v=1652469127" alt="me.motherearth"
+          itemprop="logo" width="75">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#why-matters">Why It Matters</a></li>
+        <li><a href="#quiz">Find Your Match</a></li>
+        <li><a href="https://memotherearthbrand.com/pages/about-us-me-mother-earth">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Help Our Mother Earth</h1>
+        <p class="subtitle">Change begins with <strong>ME</strong></p>
+        <p class="description">Everyday products shouldn't harm our planet or your routines. Whether you're avoiding
+          harsh or unnecessary ingredients, reducing plastic waste, or both—we'll help you find thoughtful, eco-friendly
+          swaps that fit your life.</p>
+        <div class="cta-buttons">
+          <a href="#quiz" class="btn" id="primary-cta">Help Me Choose</a>
+        </div>
+        <p class="reassurance-text">No pressure. Just thoughtful recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters Section -->
+  <section class="section" id="why-matters">
+    <div class="container">
+      <h2 class="section-title">Why It Matters</h2>
+      <p class="section-subtitle">Small steps matter. Every swap makes a difference.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Reduce Plastic Waste</h3>
+          <p>Every year, millions of tons of single-use plastic end up in landfills and oceans. Simple swaps to
+            reusable, plastic-free alternatives help protect our planet.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Avoid Harsh Ingredients</h3>
+          <p>Many everyday products contain harsh or unnecessary additives. Ingredient-conscious alternatives can feel
+            simpler, more intentional, and easier to trust—without making extreme claims.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Simple Swaps</h3>
+          <p>You don't need to change everything at once. Start with one space—kitchen, bathroom, or laundry—and build
+            from there. Progress, not perfection.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Everyday Impact</h3>
+          <p>Products you use daily have the biggest impact. When you choose eco-friendly options, you're making a
+            difference with every use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ WIZARD -->
+  <section class="section" id="quiz">
+    <div class="container">
+      <h2 class="section-title">Find Your Perfect Match</h2>
+      <p class="section-subtitle">Answer a few quick questions and we'll recommend products that match your values</p>
+
+      <div class="finder-wizard">
+        <!-- Progress Indicator -->
+        <div class="wizard-progress">
+          <div class="progress-dot active" id="progress-1"></div>
+          <div class="progress-dot" id="progress-2"></div>
+          <div class="progress-dot" id="progress-3"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="wizard-step active" id="step1">
+          <h3 style="margin-top:0;font-size:24px;color:var(--text-dark);text-align:center;margin-bottom:1rem">What are
+            you trying to change right now?</h3>
+          <div class="wizard-options">
+            <div class="wizard-option" data-value="ingredients"
+              onclick="selectOption('q1', 'ingredients', 'step1', 'step2', this)">
+              <h4>Avoid harsh or unnecessary ingredients</h4>
+              <p>I want to be more mindful about the ingredients I use every day</p>
+            </div>
+            <div class="wizard-option" data-value="waste" onclick="selectOption('q1', 'waste', 'step1', 'step2', this)">
+              <h4>Reduce plastic and single-use waste</h4>
+              <p>I want to reduce plastic and disposable products in my home</p>
+            </div>
+            <div class="wizard-option" data-value="both" onclick="selectOption('q1', 'both', 'step1', 'step2', this)">
+              <h4>Both: ingredients + waste</h4>
+              <p>I care about what products are made of and how they’re packaged</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="wizard-step" id="step2">
+          <h3 style="margin-top:0;font-size:24px;color:var(--text-dark);text-align:center;margin-bottom:1rem">Where do
+            you want to start?</h3>
+          <div class="wizard-options">
+            <div class="wizard-option" data-value="kitchen"
+              onclick="selectOption('q2', 'kitchen', 'step2', 'step3', this)">
+              <h4>Kitchen</h4>
+              <p>Dishwashing, food storage, and cleaning</p>
+            </div>
+            <div class="wizard-option" data-value="bathroom"
+              onclick="selectOption('q2', 'bathroom', 'step2', 'step3', this)">
+              <h4>Bathroom</h4>
+              <p>Personal care and hygiene products</p>
+            </div>
+            <div class="wizard-option" data-value="oral" onclick="selectOption('q2', 'oral', 'step2', 'step3', this)">
+              <h4>Oral Care</h4>
+              <p>Toothbrushes, floss, and toothpaste alternatives</p>
+            </div>
+            <div class="wizard-option" data-value="laundry"
+              onclick="selectOption('q2', 'laundry', 'step2', 'step3', this)">
+              <h4>Laundry</h4>
+              <p>Detergent and fabric care</p>
+            </div>
+            <div class="wizard-option" data-value="not-sure"
+              onclick="selectOption('q2', 'not-sure', 'step2', 'step3', this)">
+              <h4>Not sure – guide me</h4>
+              <p>Show me a curated starter set</p>
+            </div>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn outline" onclick="goToStep('step2', 'step1')">← Back</button>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="wizard-step" id="step3">
+          <h3 style="margin-top:0;font-size:24px;color:var(--text-dark);text-align:center;margin-bottom:1rem">What
+            matters most?</h3>
+          <p style="text-align:center;color:var(--muted);margin-bottom:1.5rem;font-size:0.95rem">Select all that apply
+          </p>
+          <div class="wizard-options">
+            <div class="wizard-option" data-value="ingredients"
+              onclick="toggleMultiSelect('q3', 'ingredients', this, true)">
+              <h4>Fewer unnecessary additives</h4>
+              <p>Thoughtfully selected ingredients with fewer unnecessary extras</p>
+            </div>
+            <div class="wizard-option" data-value="packaging" onclick="toggleMultiSelect('q3', 'packaging', this, true)">
+              <h4>Plastic-free or low-waste packaging</h4>
+              <p>Designed to reduce single-use waste</p>
+            </div>
+            <div class="wizard-option" data-value="swaps" onclick="toggleMultiSelect('q3', 'swaps', this, true)">
+              <h4>Simple swaps</h4>
+              <p>Easy replacements for what you already use</p>
+            </div>
+            <div class="wizard-option" data-value="everyday" onclick="toggleMultiSelect('q3', 'everyday', this, true)">
+              <h4>Everyday-use products</h4>
+              <p>Items you'll use daily</p>
+            </div>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn outline" onclick="goToStep('step3', 'step2')">← Back</button>
+            <div class="btn notice" aria-disabled="true">Choose an option to view matches</div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="wizard-step" id="results">
+          <div class="results-header">
+            <h3>Here are your personalized recommendations</h3>
+            <p class="reassurance-text" style="margin-top:1rem">No pressure. Just thoughtful recommendations.</p>
+          </div>
+          <div id="recommendations" class="variants-grid"></div>
+          <div class="wizard-nav" style="margin-top:2rem">
+            <button class="btn outline" onclick="resetWizard()">Retake Quiz</button>
+            <a class="btn" href="https://memotherearthbrand.com/" target="_blank">Browse All Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <h2>Ready to make a difference?</h2>
+      <p>Start with small steps. Every swap helps our Mother Earth.</p>
+      <div class="cta-buttons">
+        <a href="#quiz" class="btn">Help Me Choose</a>
+        <a href="https://memotherearthbrand.com/" class="btn outline" target="_blank">Browse All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>About Me Mother Earth</h4>
+          <p>We're building a community that wants to protect our Mother Earth. Our products reduce the need for
+            plastics, use thoughtfully selected materials, or are designed to be reusable.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="#quiz" style="color:#cbd5e0">Find Your Match</a></p>
+          <p><a href="https://memotherearthbrand.com/" style="color:#cbd5e0" target="_blank">Shop All Products</a></p>
+          <p><a href="https://memotherearthbrand.com/pages/about-us-me-mother-earth" style="color:#cbd5e0"
+              target="_blank">About Us</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Our Mission</h4>
+          <p>Progress, not perfection. Every individual has the ability to make an impact. Small steps matter.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Me Mother Earth • All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Quiz state management
+    let quizData = { q1: null, q2: null, q3: [] };
+
+    // prevents double-navigation on rapid clicks
+    let step3AutoNavigated = false;
+
+    function initializeFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const source = urlParams.get('source') || urlParams.get('utm_source');
+      const q1Param = urlParams.get('q1');
+
+      if (source === 'ingredients' || q1Param === 'ingredients') {
+        quizData.q1 = 'ingredients';
+        setTimeout(() => {
+          const option = document.querySelector('#step1 .wizard-option[data-value="ingredients"]');
+          if (option) option.click();
+        }, 100);
+      } else if (source === 'waste' || q1Param === 'waste') {
+        quizData.q1 = 'waste';
+        setTimeout(() => {
+          const option = document.querySelector('#step1 .wizard-option[data-value="waste"]');
+          if (option) option.click();
+        }, 100);
+      } else if (source === 'beginner' || q1Param === 'both') {
+        quizData.q1 = 'both';
+        setTimeout(() => {
+          const option = document.querySelector('#step1 .wizard-option[data-value="both"]');
+          if (option) option.click();
+        }, 100);
+      }
+
+      trackEvent('quiz_started', { source: source || 'direct' });
+    }
+
+    // =========================
+    // PRODUCT DATA
+    // =========================
+
+    // Replacement products (no Huppy; Me Mother Earth only)
+    const mmeMouthwash = {
+      id: 'zero-waste-mouthwash-tablets',
+      name: 'Zero Waste Mouthwash Tablets',
+      price: '$13.98',
+      why: 'Plastic-free packaging, ingredient-conscious',
+      ingredients: true,
+      packaging: true,
+      swaps: true,
+      everyday: true,
+      image: 'https://memotherearthbrand.com/cdn/shop/files/zero_waste_mouthwash_tablets_460x.jpg?v=1767239151'
+    };
+
+    const mmeFlossPicks = {
+      id: 'biodegradable-charcoal-dental-floss-picks',
+      name: 'Biodegradable Charcoal Dental Floss Picks',
+      price: '$4.49',
+      why: 'Plastic-free packaging, ingredient-conscious',
+      ingredients: true,
+      packaging: true,
+      swaps: true,
+      everyday: true,
+      image: 'https://memotherearthbrand.com/cdn/shop/files/FLoss_Picks_1_1_460x.jpg?v=1762457480'
+    };
+
+    const product1 = {
+      kitchen: [
+        { id: 'dishwashing-soap-bars-6-oz', name: 'Dishwashing Soap Bars', price: '$11.99', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Lavender_Dish_Soap_2048x.png?v=1761942124' },
+        { id: 'zero-waste-gift-set-kitchen-edition', name: 'Zero Waste Kitchen Set', price: '$45.95', why: 'Thoughtfully selected materials, reusable', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/7-Zero_Waste_Kitchen_Kit5_1_2048x.jpg?v=1762457095' },
+        { id: 'plant-based-wax-food-wrap-roll', name: 'Plant Based Wax Food Wrap Roll', price: '$25.98', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_3305_720x.jpg?v=1762457641' },
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' },
+        { id: '3-pack-beeswax-food-wraps-avocado-print', name: 'Plant Based Wax Food Wraps 3-Pack', price: '$14.98', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/WaxWraps_1_720x.jpg?v=1762457075' },
+        { id: 'zero-waste-kitchen-set-ii', name: 'Zero Waste Kitchen Set II', price: '$55.99', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ZeroWasteKitchenKit2_720x.jpg?v=1762457099' }
+      ],
+      bathroom: [
+        { id: 'handmade-soap-bar-4-5-oz', name: 'Natural Soap Bars', price: '$7.49', why: 'Biodegradable, thoughtfully designed', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/herb_garden_2_1728x.jpg?v=1761939111' },
+        { id: 'sudsy-shampoo-bars-3-oz', name: 'Shampoo Bars', price: '$12.99', why: 'Plastic-free, thoughtfully selected materials', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ShampooBars_720x.jpg?v=1762457130' },
+        { id: 'shampoo-conditioner-bundles', name: 'Shampoo + Conditioner Bundle', price: '$21.99', why: 'Ingredient-conscious, plastic-free packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/DSC_1627_2048x.jpg?v=1762457483' },
+        { id: 'solid-conditioner-bars', name: 'Conditioner Bars', price: '$10.99', why: 'Plastic-free, thoughtfully selected materials', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4357908264_bnat_720x.jpg?v=1762457130' },
+        { id: 'deep-conditioning-spray', name: 'Leave-In Conditioning Spray', price: '$14.99', why: 'Biodegradable, thoughtfully designed', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Leave_in_Conditioning_Spray_1_2_720x.jpg?v=1762457798' },
+        { id: 'natural-soap-bars-bundle', name: 'Natural Soap Bars - Multipack', price: '$34.95', why: 'Ingredient-conscious, plastic-free packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/DSC_2430_720x.jpg?v=1762457890' }
+      ],
+      oral: [
+        { id: 'vegan-biodegradable-bamboo-charcoal-dental-floss-with-refillable-glass-container-free-refill-natural-candelilla-wax-33yds-x2-peppermint-essential-oil-eco-friendly-zero-waste-oral-care', name: 'Biodegradable Charcoal Dental Floss', price: '$10.99', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4302724278_jgvx_540x.jpg?v=1762301434' },
+        { id: 'zero-waste-toothpaste-tablets', name: 'Zero Waste Toothpaste Tablets', price: '$13.98', why: 'Ingredient-conscious, no plastic tube', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/MMEToothpasteTabletsNano_540x.jpg?v=1764358172' },
+        { id: 'charcoal-mint-toothpowder', name: 'Foaming Mint Toothpowder', price: '$8.49', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4405305283_bdse_720x.jpg?v=1762457095' },
+
+        /* UPDATED (replaces Huppy) */
+        mmeMouthwash,
+
+        /* UPDATED (replaces floss refill-only) */
+        mmeFlossPicks,
+
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' }
+      ],
+      laundry: [
+        { id: 'laundry-detergent-sheets', name: 'Laundry Detergent Sheets', price: '$12.99', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_2166_72fd79a5-142d-4e59-8167-f17d50212ba0_540x.jpg?v=1710799180' },
+        { id: 'lavender-dryer-sachets', name: 'Lavender Dryer Sachets 2pk', price: '$9.98', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dryer_Sachets7_2048x.jpg?v=1762457482' },
+        { id: 'laundry-scent-booster', name: 'Plastic-Free Laundry Scent Boosters', price: '$14.99', why: 'Ingredient-conscious, no plastic tube', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_0008_1_2048x.jpg?v=1768860714' }
+      ],
+      'not-sure': [
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Easy first swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' },
+        { id: 'zero-waste-toothpaste-tablets', name: 'Zero Waste Toothpaste Tablets', price: '$13.98', why: 'No tube, simple routine', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/MMEToothpasteTabletsNano_540x.jpg?v=1764358172' },
+        { id: 'laundry-detergent-sheets', name: 'Laundry Detergent Sheets', price: '$12.99', why: 'Low-mess, low-waste', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_2166_72fd79a5-142d-4e59-8167-f17d50212ba0_540x.jpg?v=1710799180' },
+        { id: 'sudsy-shampoo-bars-3-oz', name: 'Shampoo Bars', price: '$12.99', why: 'Plastic-free hair care', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ShampooBars_720x.jpg?v=1762457130' },
+        { id: 'handmade-soap-bar-4-5-oz', name: 'Natural Soap Bars', price: '$7.49', why: 'Simple everyday swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/herb_garden_2_1728x.jpg?v=1761939111' },
+        { id: 'plant-based-wax-food-wrap-roll', name: 'Plant Based Wax Food Wrap Roll', price: '$25.98', why: 'Replace cling wrap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_3305_720x.jpg?v=1762457641' }
+      ]
+    };
+
+    const product2 = {
+      kitchen: [
+        { id: 'sisal-fiber-beechwood-kitchen-dish-brush', name: 'Beechwood + Sisal Fiber Kitchen Dish Brush', price: '$9.98', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/MG_58372_2048x.jpg?v=1762457074' },
+        { id: '4-pack-multipurpose-wood-plant-fiber-cleaning-brushes', name: '4 Pack Multipurpose Wood + Plant Fiber Cleaning Brushes', price: '$29.99', why: 'Reusable cleaning set', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Kitchen_brushes_4_pack_-_Narrow_Bottle_Brush_0aa6fe12-0aa4-4056-9e98-5aaacd7b7aeb_2048x.jpg?v=1762457104' },
+        { id: 'zero-waste-gift-set-kitchen-edition', name: 'Zero Waste Kitchen Set', price: '$45.95', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/7-Zero_Waste_Kitchen_Kit5_1_2048x.jpg?v=1762457095' },
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Plastic-free starter', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' },
+        { id: 'modular-brush-refill-heads', name: 'Modular Brush Refill Heads ONLY', price: '$4.99', why: 'Reduce waste with refills', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4679784358_ccg2_2048x.jpg?v=1762457606' },
+        { id: '3-pack-beeswax-food-wraps-avocado-print', name: 'Plant Based Wax Food Wraps 3-Pack', price: '$14.98', why: 'Replace plastic wrap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/WaxWraps_1_720x.jpg?v=1762457075' }
+      ],
+      bathroom: [
+        /* UPDATED (replaces floss refill-only) */
+        mmeFlossPicks,
+
+        { id: 'zero-waste-toothpaste-tablets', name: 'Zero Waste Toothpaste Tablets', price: '$13.98', why: 'No plastic tube', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/toothpaste_tablets_all_3_2048x.jpg?v=1767238853' },
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Low-waste refill bundle', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' },
+        { id: 'bamboo-cotton-swabs', name: 'Bamboo Cotton Swabs', price: '$5.49', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_2048x.jpg?v=1767223010' },
+        { id: 'quick-dry-diatomite-mat', name: 'Quick Dry Diatomaceous Earth Floor Stone Bath and Dish Mat | Bathroom Shower Mat Non-Slip | Super Absorbent | Eco Friendly | Sustainable', price: '$57.99', why: 'Reusable everyday upgrade', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/MG_6345_2048x.jpg?v=1762457526' },
+        { id: 'sisal-back-scrubbing-strap', name: 'Sisal Back Scrubbing Strap', price: '$7.99', why: 'Plastic-free swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Back_Strap_Pumice_2048x.jpg?v=1762457271' }
+      ],
+      laundry: [
+        { id: 'ultimate-cleaning-bundle', name: 'Zero Waste Ultimate Cleaning Bundle', price: '$37.76', why: 'Easy low-waste set', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/DSC_2424_2048x.jpg?v=1759500073' },
+        { id: 'laundry-soap-concentrate-bar', name: 'Laundry Soap Concentrate Bar- 256 loads', price: '$22.99', why: 'Long-lasting, less packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_0888_2048x.jpg?v=1762457286' },
+        { id: 'laundry-stain-remover-stick', name: 'Laundry Stain Remover Stick', price: '$5.99', why: 'Small swap, big impact', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.3956962400_ds5h_2048x.jpg?v=1762457092' }
+      ],
+      oral: [
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Refill bundle, low waste', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_2048x.jpg?v=1767223010' },
+        { id: 'stainless-steel-tongue-scraper', name: 'Stainless Steel Tongue Scraper 2pk', price: '$14.99', why: 'Reusable daily tool', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToungueScrapper_2048x.jpg?v=1762458224' },
+        { id: 'bamboo-electric-toothbrush-heads-4-pack', name: '4 Pack Bamboo Electric Toothbrush Heads: Sonicare Compatible', price: '$14.99', why: 'Lower-waste replacement', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/DSC_9309_2048x.jpg?v=1762457419' },
+        { id: 'charcoal-mint-toothpowder', name: 'Foaming Mint Toothpowder', price: '$8.49', why: 'No tube alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4405305283_bdse_2048x.jpg?v=1762457095' },
+        { id: 'davids-premium-natural-toothpaste', name: 'Davids Premium Natural Toothpaste', price: '$9.95', why: 'Sustainable packaging option', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/Davids_82_2048x.jpg?v=1762457302' },
+        { id: 'the-everything-travel-tin', name: 'The Everything Travel Tin', price: '$3.99', why: 'Reusable storage', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/The_Everything_Tin_14_2048x.jpg?v=1762457950' }
+      ],
+      'not-sure': [
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Top low-waste starter', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' },
+        { id: 'sisal-fiber-beechwood-kitchen-dish-brush', name: 'Beechwood + Sisal Fiber Kitchen Dish Brush', price: '$9.98', why: 'Plastic-free swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/MG_58372_2048x.jpg?v=1762457074' },
+        { id: '3-pack-beeswax-food-wraps-avocado-print', name: 'Plant Based Wax Food Wraps 3-Pack', price: '$14.98', why: 'Replace plastic wrap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/WaxWraps_1_720x.jpg?v=1762457075' },
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Low-waste refill bundle', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' },
+        { id: 'laundry-soap-concentrate-bar', name: 'Laundry Soap Concentrate Bar- 256 loads', price: '$22.99', why: 'Less packaging over time', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_0888_2048x.jpg?v=1762457286' },
+        { id: 'laundry-stain-remover-stick', name: 'Laundry Stain Remover Stick', price: '$5.99', why: 'Easy add-on swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.3956962400_ds5h_2048x.jpg?v=1762457092' }
+      ]
+    };
+
+    const product3 = {
+      kitchen: [
+        { id: 'sisal-fiber-beechwood-kitchen-dish-brush', name: 'Beechwood + Sisal Fiber Kitchen Dish Brush', price: '$9.98', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/MG_58372_2048x.jpg?v=1762457074' },
+        { id: 'dishwashing-soap-bars-6-oz', name: 'Dishwashing Soap Bars', price: '$11.99', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Lavender_Dish_Soap_2048x.png?v=1761942124' },
+        { id: 'zero-waste-gift-set-kitchen-edition', name: 'Zero Waste Kitchen Set', price: '$45.95', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/7-Zero_Waste_Kitchen_Kit5_1_2048x.jpg?v=1762457095' },
+        { id: 'modular-brush-refill-heads', name: 'Modular Brush Refill Heads ONLY', price: '$4.99', why: 'Refills reduce waste', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4679784358_ccg2_2048x.jpg?v=1762457606' },
+        { id: 'plant-based-wax-food-wrap-roll', name: 'Plant Based Wax Food Wrap Roll', price: '$25.98', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_3305_720x.jpg?v=1762457641' },
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Eliminates single-use plastic', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' }
+      ],
+      bathroom: [
+        { id: 'handmade-soap-bar-4-5-oz', name: 'Natural Soap Bars', price: '$7.49', why: 'Biodegradable, thoughtfully designed', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/herb_garden_2_1728x.jpg?v=1761939111' },
+        { id: 'sudsy-shampoo-bars-3-oz', name: 'Shampoo Bars', price: '$12.99', why: 'Plastic-free, thoughtfully selected materials', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ShampooBars_720x.jpg?v=1762457130' },
+        { id: 'solid-conditioner-bars', name: 'Conditioner Bars', price: '$10.99', why: 'Plastic-free, thoughtfully selected materials', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4357908264_bnat_720x.jpg?v=1762457130' },
+        { id: 'deep-conditioning-spray', name: 'Leave-In Conditioning Spray', price: '$14.99', why: 'Biodegradable, thoughtfully designed', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Leave_in_Conditioning_Spray_1_2_720x.jpg?v=1762457798' },
+        { id: 'natural-soap-bars-bundle', name: 'Natural Soap Bars - Multipack', price: '$34.95', why: 'Ingredient-conscious, plastic-free packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/DSC_2430_720x.jpg?v=1762457890' },
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Low-waste refill bundle', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' }
+      ],
+      oral: [
+        { id: 'vegan-biodegradable-bamboo-charcoal-dental-floss-with-refillable-glass-container-free-refill-natural-candelilla-wax-33yds-x2-peppermint-essential-oil-eco-friendly-zero-waste-oral-care', name: 'Biodegradable Charcoal Dental Floss', price: '$10.99', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4302724278_jgvx_540x.jpg?v=1762301434' },
+        { id: 'zero-waste-toothpaste-tablets', name: 'Zero Waste Toothpaste Tablets', price: '$13.98', why: 'Ingredient-conscious, no plastic tube', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/MMEToothpasteTabletsNano_540x.jpg?v=1764358172' },
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Refills reduce packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' },
+        { id: 'charcoal-mint-toothpowder', name: 'Foaming Mint Toothpowder', price: '$8.49', why: 'Plastic-free alternative', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.4405305283_bdse_720x.jpg?v=1762457095' },
+
+        /* UPDATED (replaces Huppy) */
+        mmeMouthwash,
+
+        { id: 'stainless-steel-tongue-scraper', name: 'Stainless Steel Tongue Scraper 2pk', price: '$14.99', why: 'Reusable daily tool', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToungueScrapper_2048x.jpg?v=1762458224' }
+      ],
+      laundry: [
+        { id: 'laundry-detergent-sheets', name: 'Laundry Detergent Sheets', price: '$12.99', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_2166_72fd79a5-142d-4e59-8167-f17d50212ba0_540x.jpg?v=1710799180' },
+        { id: 'lavender-dryer-sachets', name: 'Lavender Dryer Sachets 2pk', price: '$9.98', why: 'Plastic-free packaging, ingredient-conscious', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dryer_Sachets7_2048x.jpg?v=1762457482' },
+        { id: 'laundry-scent-booster', name: 'Plastic-Free Laundry Scent Boosters', price: '$14.99', why: 'Ingredient-conscious, no plastic tube', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_0008_1_2048x.jpg?v=1768860714' },
+        { id: 'laundry-soap-concentrate-bar', name: 'Laundry Soap Concentrate Bar- 256 loads', price: '$22.99', why: 'Less packaging over time', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_0888_2048x.jpg?v=1762457286' },
+        { id: 'laundry-stain-remover-stick', name: 'Laundry Stain Remover Stick', price: '$5.99', why: 'Small swap, big impact', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/il_fullxfull.3956962400_ds5h_2048x.jpg?v=1762457092' }
+      ],
+      'not-sure': [
+        { id: 'dish-ist', name: 'Zero Waste Dishwashing Starter Set - Free Shipping', price: '$36.99', why: 'Easy first swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/Dishwashing_2048x.jpg?v=1761942270' },
+        { id: 'zero-waste-toothpaste-tablets-3-month-refills', name: 'Zero Waste Toothpaste Tablets- 3 Month Refills', price: '$23.98', why: 'Refills reduce packaging', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ToothpasteTablets_1728x.jpg?v=1767223010' },
+        { id: 'laundry-detergent-sheets', name: 'Laundry Detergent Sheets', price: '$12.99', why: 'Low-mess, low-waste', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/IMG_2166_72fd79a5-142d-4e59-8167-f17d50212ba0_540x.jpg?v=1710799180' },
+        { id: 'sudsy-shampoo-bars-3-oz', name: 'Shampoo Bars', price: '$12.99', why: 'Plastic-free routine', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/ShampooBars_720x.jpg?v=1762457130' },
+        { id: 'handmade-soap-bar-4-5-oz', name: 'Natural Soap Bars', price: '$7.49', why: 'Simple everyday swap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/files/herb_garden_2_1728x.jpg?v=1761939111' },
+        { id: 'plant-based-wax-food-wrap-roll', name: 'Plant Based Wax Food Wrap Roll', price: '$25.98', why: 'Replace cling wrap', ingredients: true, packaging: true, swaps: true, everyday: true, image: 'https://memotherearthbrand.com/cdn/shop/products/IMG_3305_720x.jpg?v=1762457641' }
+      ]
+    };
+
+    // =========================
+    // WIZARD LOGIC
+    // =========================
+
+    function getDefaultQ3ForNotSure() {
+      if (quizData.q1 === 'ingredients') return ['ingredients', 'swaps', 'everyday'];
+      if (quizData.q1 === 'waste') return ['packaging', 'swaps', 'everyday'];
+      return ['ingredients', 'packaging', 'swaps', 'everyday'];
+    }
+
+    function selectOption(key, value, currentStep, nextStep, el) {
+      if (key === 'q1') {
+        quizData.q1 = value;
+        trackEvent('quiz_q1_completed', { answer: value });
+      } else if (key === 'q2') {
+        quizData.q2 = value;
+        trackEvent('quiz_q2_completed', { answer: value });
+      }
+
+      document.querySelectorAll(`#${currentStep} .wizard-option`).forEach(opt => opt.classList.remove('selected'));
+      if (el) el.classList.add('selected');
+
+      updateProgress(currentStep);
+
+      if (key === 'q2' && value === 'not-sure') {
+        if (!quizData.q3 || quizData.q3.length === 0) quizData.q3 = getDefaultQ3ForNotSure();
+        trackEvent('quiz_q3_autofilled', { answers: quizData.q3, reason: 'not_sure_path' });
+        trackEvent('quiz_completed', quizData);
+
+        setTimeout(() => {
+          goToStep(currentStep, 'results');
+          updateProgress('results');
+          showRecommendations();
+        }, 200);
+        return;
+      }
+
+      setTimeout(() => goToStep(currentStep, nextStep), 300);
+    }
+
+    function toggleMultiSelect(key, value, element, autoProceed = false) {
+      const index = quizData.q3.indexOf(value);
+      const wasEmptyBefore = quizData.q3.length === 0;
+
+      if (index > -1) {
+        quizData.q3.splice(index, 1);
+        element.classList.remove('selected');
+        return;
+      } else {
+        quizData.q3.push(value);
+        element.classList.add('selected');
+      }
+
+      if (autoProceed && wasEmptyBefore && !step3AutoNavigated) {
+        step3AutoNavigated = true;
+
+        trackEvent('quiz_q3_completed', { answers: quizData.q3 });
+        trackEvent('quiz_completed', quizData);
+
+        setTimeout(() => {
+          goToStep('step3', 'results');
+          updateProgress('results');
+          showRecommendations();
+        }, 220);
+      }
+    }
+
+    function goToStep(fromStep, toStep) {
+      document.getElementById(fromStep).classList.remove('active');
+      document.getElementById(toStep).classList.add('active');
+
+      if (toStep !== 'results') {
+        document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function updateProgress(currentStep) {
+      if (currentStep === 'results') {
+        for (let i = 1; i <= 3; i++) {
+          const dot = document.getElementById(`progress-${i}`);
+          if (dot) dot.classList.add('active');
+        }
+        return;
+      }
+
+      const stepNum = currentStep.replace('step', '');
+      const stepInt = parseInt(stepNum, 10);
+
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById(`progress-${i}`);
+        if (dot) dot.classList.toggle('active', i <= stepInt);
+      }
+    }
+
+    function resetWizard() {
+      quizData = { q1: null, q2: null, q3: [] };
+      step3AutoNavigated = false;
+      document.querySelectorAll('.wizard-option').forEach(opt => opt.classList.remove('selected'));
+      document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step1').classList.add('active');
+      updateProgress('step1');
+      trackEvent('quiz_reset');
+    }
+
+    function showRecommendations() {
+      const container = document.getElementById('recommendations');
+      let categoryProducts = [];
+
+      let selectedProducts;
+      if (quizData.q1 === 'ingredients') selectedProducts = product1;
+      else if (quizData.q1 === 'waste') selectedProducts = product2;
+      else if (quizData.q1 === 'both') selectedProducts = product3;
+      else selectedProducts = product1;
+
+      if (quizData.q2 === 'not-sure') categoryProducts = selectedProducts['not-sure'];
+      else categoryProducts = selectedProducts[quizData.q2] || [];
+
+      let filtered = categoryProducts.filter(product => {
+        if (quizData.q1 === 'ingredients' && !product.ingredients) return false;
+        if (quizData.q1 === 'waste' && !product.packaging) return false;
+        if (quizData.q1 === 'both' && (!product.ingredients || !product.packaging)) return false;
+
+        if (quizData.q3.length > 0) {
+          const matches = quizData.q3.some(priority => product[priority]);
+          if (!matches) return false;
+        }
+        return true;
+      });
+
+      filtered = filtered.slice(0, 12);
+
+      if (filtered.length === 0) {
+        container.innerHTML =
+          '<p style="text-align:center;color:var(--muted);padding:2rem">No products match your criteria. <a href="https://memotherearthbrand.com/" target="_blank" style="color:var(--brand)">Browse all products</a></p>';
+        return;
+      }
+
+      container.innerHTML = filtered.map(product => `
+        <div class="variant-card" onclick="selectProduct('${product.id}')">
+          <div class="variant-image">
+            <img src="${product.image}" alt="${product.name}"
+              onerror="this.src='https://via.placeholder.com/400x400?text=${encodeURIComponent(product.name)}'">
+          </div>
+          <div class="variant-info">
+            <div class="why-match">${product.why}</div>
+            <h3>${product.name}</h3>
+            <p>${getProductDescription(product)}</p>
+            <div class="price">${product.price}</div>
+            <a href="https://memotherearthbrand.com/products/${product.id}" target="_blank" class="btn outline"
+              style="margin-top:1rem;display:inline-block;padding:0.8rem 1.5rem;font-size:0.9rem"
+              onclick="event.stopPropagation(); trackEvent('product_clicked', {product_id: '${product.id}'})">Learn More</a>
+          </div>
+        </div>
+      `).join('');
+
+      trackEvent('results_viewed', { product_count: filtered.length });
+    }
+
+    function getProductDescription(product) {
+      const descriptions = [];
+      if (product.ingredients && quizData.q3.includes('ingredients')) descriptions.push('Ingredient-conscious, thoughtfully selected');
+      if (product.packaging && quizData.q3.includes('packaging')) descriptions.push('Plastic-free or low-waste packaging');
+      if (product.swaps && quizData.q3.includes('swaps')) descriptions.push('Simple swap for everyday routines');
+      if (product.everyday && quizData.q3.includes('everyday')) descriptions.push('Designed for daily use');
+      return descriptions.join(' • ') || 'Thoughtful eco-friendly alternative';
+    }
+
+    function selectProduct(id) {
+      trackEvent('product_selected', { product_id: id });
+      window.open(`https://memotherearthbrand.com/products/${id}`, '_blank');
+    }
+
+    function trackEvent(eventName, data = {}) {
+      if (typeof gtag !== 'undefined') gtag('event', eventName, data);
+      if (typeof fbq !== 'undefined') fbq('track', eventName, data);
+      console.log('Event:', eventName, data);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initializeFromURL();
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
