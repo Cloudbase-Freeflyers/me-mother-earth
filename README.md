@@ -16,6 +16,7 @@ npm run start    # serve the production build
 ## Landing pages
 
 
+
 Each product landing page is its own route under `app/<slug>/`. The markup was
 converted from the Shopify PageFly HTML exports and is **fully self-contained** —
 the original design (inline styles) is preserved verbatim and rendered via the
