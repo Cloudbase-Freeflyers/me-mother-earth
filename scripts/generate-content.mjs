@@ -70,6 +70,33 @@ function extractScripts(src) {
   return scripts;
 }
 
+// Anchors pointing at the Shopify storefront. Tagged with data-gtm-cta so a GTM
+// Link Click trigger can target a[data-gtm-cta] instead of guessing by URL.
+const SHOPIFY_HOST = /https?:\/\/(?:www\.)?memotherearthbrand\.com/i;
+
+// Clean up the extracted scripts:
+//  - drop the hard-coded Google Ads tag (now handled centrally via GTM),
+//  - tag dynamically-generated Shopify CTAs (e.g. the quiz result links).
+function processScripts(scripts) {
+  return scripts
+    .filter((s) => !(s.src && /googletagmanager\.com\/gtag\/js\?id=AW-/i.test(s.src)))
+    .filter((s) => !(s.code && /gtag\(\s*['"]config['"]/.test(s.code)))
+    .map((s) => {
+      if (!s.code) return s;
+      const code = s.code
+        // Remove the Google Ads conversion function...
+        .replace(/function\s+firetag\s*\(\)\s*\{\s*gtag\([\s\S]*?\}\);\s*\}/g, "")
+        // ...and retarget the size-selector that found its buttons via it.
+        .replace(/a\[onclick=["']firetag\(\)["']\]/g, 'a[data-gtm-cta="shopify"]')
+        // Tag Shopify CTAs built inside template strings.
+        .replace(
+          /<a\b(?=[^>]*href=["']https?:\/\/(?:www\.)?memotherearthbrand\.com)(?![^>]*data-gtm-cta)([^>]*?)>/gi,
+          '<a data-gtm-cta="shopify"$1>'
+        );
+      return { ...s, code };
+    });
+}
+
 function extractStyles(src) {
   return (src.match(/<style\b[^>]*>[\s\S]*?<\/style>/gi) || []).join("\n");
 }
@@ -180,6 +207,17 @@ function findSectionBlocks(root) {
 
 function processSections(html) {
   const root = parse(html, PARSE_OPTS);
+
+  // Tag every static CTA that links to the Shopify storefront, and drop the
+  // old Google Ads click hook (conversions now run through GTM).
+  root.querySelectorAll("a").forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    if (SHOPIFY_HOST.test(href)) a.setAttribute("data-gtm-cta", "shopify");
+    if ((a.getAttribute("onclick") || "").replace(/\s+/g, "") === "firetag()") {
+      a.removeAttribute("onclick");
+    }
+  });
+
   const blocks = findSectionBlocks(root);
 
   const sections = [];
@@ -267,7 +305,7 @@ export default function Page() {
 
 for (const { src, slug } of PAGES) {
   const raw = readFileSync(join(SRC_DIR, src), "utf8");
-  const scripts = extractScripts(raw);
+  const scripts = processScripts(extractScripts(raw));
   const meta = deriveMeta(raw);
   const { html, sections } = processSections(buildHtml(raw));
 
